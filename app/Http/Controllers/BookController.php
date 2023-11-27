@@ -8,9 +8,15 @@ use App\Models\Books;
 
 class BookController extends Controller
 {
-    public function index($id)
+    public function index()
     {
-        $books = Books::find($id);
+        $books = Books::all();
         return response()->json($books);
+    }
+
+    public function show($id)
+    {
+        $book = Books::find($id);
+        return response()->json($book);
     }
 }
